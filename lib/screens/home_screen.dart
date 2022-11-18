@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qrreader/providers/ui_provider.dart';
 import 'package:qrreader/screens/direccion_screen.dart';
 import 'package:qrreader/screens/mapas_screen.dart';
 import 'package:qrreader/widgets/scan_button.dart';
@@ -32,7 +34,9 @@ class HomeScreen extends StatelessWidget {
 class _HomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int currenIndex = 0;
+    //
+    final uiProvider = Provider.of<UiProvider>(context);
+    int currenIndex = uiProvider.selectedMenuOpt;
     switch (currenIndex) {
       case 0:
         return const MapasScreen();

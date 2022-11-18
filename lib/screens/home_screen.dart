@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qrreader/screens/direccion_screen.dart';
+import 'package:qrreader/screens/mapas_screen.dart';
 import 'package:qrreader/widgets/scan_button.dart';
 import 'package:qrreader/widgets/custom_navigatior_bar.dart';
 
@@ -19,10 +20,26 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: const DirrecionesScreen(),
+      body: _HomeScreenBody(),
       bottomNavigationBar: const CustomNavigationBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: const ScanButton(),
     );
+  }
+}
+
+//
+class _HomeScreenBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    int currenIndex = 0;
+    switch (currenIndex) {
+      case 0:
+        return const MapasScreen();
+      case 1:
+        return const DirrecionesScreen();
+      default:
+        return const MapasScreen();
+    }
   }
 }

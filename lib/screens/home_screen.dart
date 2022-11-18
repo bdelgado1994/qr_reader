@@ -36,8 +36,8 @@ class _HomeScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     final uiProvider = Provider.of<UiProvider>(context);
-    int currenIndex = uiProvider.selectedMenuOpt;
-    switch (currenIndex) {
+    final currentIndex = uiProvider.selectedMenuOpt;
+    switch (currentIndex) {
       case 0:
         return const MapasScreen();
       case 1:

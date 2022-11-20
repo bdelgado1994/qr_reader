@@ -7,7 +7,7 @@ class UiProvider extends ChangeNotifier {
   }
 
   set selectedMenuOpt(int i) {
-    this._selectdMenuOpt = i;
+    _selectdMenuOpt = i;
     notifyListeners();
   }
 }

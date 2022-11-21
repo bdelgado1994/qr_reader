@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qrreader/models/db_provider.dart';
 import 'package:qrreader/providers/ui_provider.dart';
 import 'package:qrreader/screens/direccion_screen.dart';
 import 'package:qrreader/screens/mapas_screen.dart';
@@ -37,6 +38,7 @@ class _HomeScreenBody extends StatelessWidget {
     //
     final uiProvider = Provider.of<UiProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
+    DBProvider.db.database;
     switch (currentIndex) {
       case 0:
         return const MapasScreen();

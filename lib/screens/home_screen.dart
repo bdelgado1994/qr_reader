@@ -38,7 +38,8 @@ class _HomeScreenBody extends StatelessWidget {
     //
     final uiProvider = Provider.of<UiProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
-    DBProvider.db.database;
+    final ScanModel tempScan = ScanModel(valor: 'http://www.goolgle.com');
+    DBProvider.db.newScan(tempScan);
     switch (currentIndex) {
       case 0:
         return const MapasScreen();

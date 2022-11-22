@@ -3,10 +3,10 @@ import 'dart:convert';
 class ScanModel {
   ScanModel({
     this.id,
-    required this.tipo,
+    this.tipo,
     required this.valor,
   }) {
-    if (tipo.contains('http')) {
+    if (this.valor.contains('http')) {
       tipo = 'http';
     } else {
       tipo = 'geo';
@@ -14,7 +14,7 @@ class ScanModel {
   }
 
   int? id;
-  String tipo;
+  String? tipo;
   String valor;
 
   factory ScanModel.fromJson(Map<String, dynamic> json) => ScanModel(

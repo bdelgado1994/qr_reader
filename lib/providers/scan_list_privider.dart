@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:qrreader/models/db_provider.dart';
 
@@ -32,5 +34,10 @@ class ScanListProvider extends ChangeNotifier {
     await DBProvider.db.deleteAllScan();
     scans = [];
     notifyListeners();
+  }
+
+  deleteById(int idScan) async {
+    await DBProvider.db.deleteScanById(idScan);
+    loaddingScansByType(selectedType);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class ScanButton extends StatelessWidget {
@@ -13,7 +12,7 @@ class ScanButton extends StatelessWidget {
         /* final barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
             '#3D8BEF', 'Cancelar', false, ScanMode.QR);*/
         String barcodeScanRes = "https://www.disneyplus.com";
-        print(barcodeScanRes);
+        debugPrint(barcodeScanRes);
       },
       child: const Icon(Icons.filter_center_focus),
     );

@@ -76,11 +76,13 @@ class DBProvider {
         : null;
   }
 
-  Future<ScanModel?> getScanByTipo(String type) async {
+  Future<List<ScanModel>?> getScanByTipo(String type) async {
     final db = await database;
     final res = await db!.query(tableName, where: 'tipo=?', whereArgs: [type]);
 
-    return res.isNotEmpty ? ScanModel.fromJson(res.first) : null;
+    return res.isNotEmpty
+        ? res.map((scan) => ScanModel.fromJson(scan)).toList()
+        : null;
   }
 
   Future<int> updateScanById(ScanModel scan) async {

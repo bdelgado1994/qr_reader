@@ -40,7 +40,7 @@ class _HomeScreenBody extends StatelessWidget {
     final currentIndex = uiProvider.selectedMenuOpt;
     // DBProvider.db;
     //DBProvider.db.initDB();
-    final ScanModel tempScan = ScanModel(valor: 'http://www.goolgle.com');
+    //final ScanModel tempScan = ScanModel(valor: 'http://www.goolgle.com');
     //DBProvider.db.newScan(tempScan);
     //DBProvider.db.getScanById(6).then((value) => debugPrint('${value?.valor}'));
     //DBProvider.db.getAllScan().then((value) => print(value));

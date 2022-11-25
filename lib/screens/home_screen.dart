@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qrreader/models/db_provider.dart';
+import 'package:qrreader/providers/scan_list_privider.dart';
 import 'package:qrreader/providers/ui_provider.dart';
 import 'package:qrreader/screens/direccion_screen.dart';
 import 'package:qrreader/screens/mapas_screen.dart';
@@ -18,7 +19,11 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Historial'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              final scanListProvider =
+                  Provider.of<ScanListProvider>(context, listen: false);
+              scanListProvider.deleteAll();
+            },
             icon: const Icon(Icons.delete_forever),
           )
         ],
@@ -45,10 +50,14 @@ class _HomeScreenBody extends StatelessWidget {
     //DBProvider.db.getScanById(6).then((value) => debugPrint('${value?.valor}'));
     //DBProvider.db.getAllScan().then((value) => print(value));
     //DBProvider.db.deleteAllScan().then((value) => print('$value'));
+    final scanListProvoder =
+        Provider.of<ScanListProvider>(context, listen: false);
     switch (currentIndex) {
       case 0:
+        scanListProvoder.loaddingScansByType('geo');
         return const MapasScreen();
       case 1:
+        scanListProvoder.loaddingScansByType('http');
         return const DirrecionesScreen();
       default:
         return const MapasScreen();

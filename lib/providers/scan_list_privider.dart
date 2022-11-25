@@ -12,10 +12,11 @@ class ScanListProvider extends ChangeNotifier {
     final id = await DBProvider.db.newScan(newScan);
     //Asignar el ID de la base de datos al modelo
     newScan.id = id;
-    if (newScan.tipo == selectedType) {
+    if (selectedType == newScan.tipo) {
       scans.add(newScan);
       notifyListeners();
     }
+    return newScan;
   }
 
   loadScans() async {

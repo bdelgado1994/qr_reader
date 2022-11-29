@@ -7,7 +7,7 @@ class ScanListProvider extends ChangeNotifier {
   List<ScanModel> scans = [];
   String selectedType = 'http';
 
-  Future newScan(String valor) async {
+  Future<ScanModel> newScan(String valor) async {
     final newScan = ScanModel(valor: valor);
     final id = await DBProvider.db.newScan(newScan);
     //Asignar el ID de la base de datos al modelo
@@ -39,6 +39,5 @@ class ScanListProvider extends ChangeNotifier {
 
   deleteById(int idScan) async {
     await DBProvider.db.deleteScanById(idScan);
-    loaddingScansByType(selectedType);
   }
 }

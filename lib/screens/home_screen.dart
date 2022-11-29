@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qrreader/models/db_provider.dart';
 import 'package:qrreader/providers/scan_list_privider.dart';
 import 'package:qrreader/providers/ui_provider.dart';
 import 'package:qrreader/screens/direccion_screen.dart';
